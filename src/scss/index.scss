@@ -1,0 +1,232 @@
+@import 'config';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: $font-stack;
+}
+
+#root,
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: darken($secondary-color, 2.5%);
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  letter-spacing: 0.5em;
+  background-color: darken($secondary-color, 5%);
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 530px;
+  padding-block: 20px;
+  background-color: $primary-color;
+}
+
+#screen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  width: 360px;
+  height: 90px;
+  padding-block: 10px 5px;
+  padding-inline: 10px;
+  font-family: Digital;
+  background-color: lighten($primary-color, 10%);
+}
+
+#formula {
+  height: 26px;
+  font-size: 26px;
+  color: $tertiary-color;
+}
+
+#display {
+  height: 49px;
+  font-size: 49px;
+  color: $secondary-color;
+}
+
+#keyboard {
+  display: grid;
+  grid-template-columns: 84px 84px 84px 84px;
+  grid-template-rows: 68.6px 68.6px 68.6px 68.6px 68.6px;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  width: 360px;
+  height: 375px;
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+
+  &:hover {
+    cursor: grab;
+    border: 1px solid $secondary-color;
+  }
+
+  &:active {
+    border: 2px solid $primary-color;
+  }
+
+  &:nth-child(1) {
+    color: darken($quaternary-color, 10%);
+  }
+
+  &:nth-child(2) {
+    grid-column: 2/4;
+  }
+
+  &:nth-child(16) {
+    grid-column: 1/3;
+    background-color: lighten($primary-color, 30%);
+  }
+}
+
+.clear {
+  background-color: darken($secondary-color, 20%);
+  color: lighten($primary-color, 20%);
+}
+
+.operator {
+  background-color: $tertiary-color;
+}
+
+.numeric {
+  background-color: lighten($primary-color, 20%);
+  color: darken($secondary-color, 20%);
+}
+
+.equal {
+  background-color: darken($quaternary-color, 10%);
+  color: darken($secondary-color, 20%);
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding-inline: 5%;
+  padding-block: 12px;
+  overflow: hidden;
+  font-size: 90%;
+  background-color: darken($secondary-color, 5%);
+
+  a {
+    padding-inline-start: 0.5em;
+    text-decoration: none;
+    font-weight: 600;
+    color: $primary-color;
+
+    &:hover {
+      color: $quaternary-color;
+    }
+  }
+}
+
+// RWD Tweaks
+
+@media only screen and (max-width: 600px) {
+  #header {
+    font-size: 80%;
+    letter-spacing: 80%;
+  }
+
+  #footer {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 8vh;
+    padding: 0.5em 0 0.3em 0;
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  #header {
+    text-align: center;
+    font-size: 80%;
+    letter-spacing: 80%;
+  }
+
+  #calculator {
+    width: 90vw;
+    min-width: 180px;
+    height: 120vw;
+    min-height: 240px;
+  }
+
+  #screen {
+    width: 90%;
+    min-width: 162px;
+    height: fit-content;
+    min-height: 43.5px;
+    padding-block: 5px 2.5px;
+    padding-inline: 5px;
+  }
+
+  #formula {
+    height: fit-content;
+    min-height: 12px;
+    font-size: 6vw;
+  }
+
+  #display {
+    height: fit-content;
+    min-height: 24px;
+    font-size: 12vw;
+  }
+
+  #keyboard {
+    grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+    grid-template-rows: 18% 18% 18% 18% 18%;
+    grid-column-gap: 3.33%;
+    grid-row-gap: 2.5%;
+    width: 90%;
+    height: 70%;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  #formula {
+    font-size: 11px;
+  }
+
+  #display {
+    font-size: 23px;
+  }
+}
