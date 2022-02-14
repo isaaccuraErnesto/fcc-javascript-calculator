@@ -1,27 +1,129 @@
 import React from 'react';
 import Key from './Key';
 
-const Keyboard = () => {
+const Keyboard = ({
+  handleNumericKey,
+  handleDecimal,
+  handleOperator,
+  handleEqual,
+  handleClear,
+  handleClearCurrent,
+}) => {
   return (
     <div id='keyboard'>
-      <Key text='AC' group='clear' id='clear' />
-      <Key text='C' group='clear' id='clear-current' />
-      <Key text='÷' group='operator' id='divide' />
-      <Key text='1' group='numeric' id='one' />
-      <Key text='2' group='numeric' id='two' />
-      <Key text='3' group='numeric' id='three' />
-      <Key text='×' group='operator' id='multiply' />
-      <Key text='4' group='numeric' id='four' />
-      <Key text='5' group='numeric' id='five' />
-      <Key text='6' group='numeric' id='six' />
-      <Key text='−' group='operator' id='subtract' />
-      <Key text='7' group='numeric' id='seven' />
-      <Key text='8' group='numeric' id='eight' />
-      <Key text='9' group='numeric' id='nine' />
-      <Key text='+' group='operator' id='add' />
-      <Key text='0' group='numeric' id='zero' />
-      <Key text='.' group='numeric' id='decimal' />
-      <Key text='=' group='equal' id='equals' />
+      <Key text='AC' group='clear' id='clear' handleClick={handleClear} />
+      <Key
+        text='C'
+        group='clear'
+        id='clear-current'
+        handleClick={handleClearCurrent}
+      />
+      <Key
+        text='÷'
+        group='operator'
+        id='divide'
+        value='/'
+        handleClick={handleOperator}
+      />
+      <Key
+        text='7'
+        group='numeric'
+        id='seven'
+        value='7'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='8'
+        group='numeric'
+        id='eight'
+        value='8'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='9'
+        group='numeric'
+        id='nine'
+        value='9'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='×'
+        group='operator'
+        id='multiply'
+        value='*'
+        handleClick={handleOperator}
+      />
+      <Key
+        text='4'
+        group='numeric'
+        id='four'
+        value='4'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='5'
+        group='numeric'
+        id='five'
+        value='5'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='6'
+        group='numeric'
+        id='six'
+        value='6'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='−'
+        group='operator'
+        id='subtract'
+        value='-'
+        handleClick={handleOperator}
+      />
+      <Key
+        text='1'
+        group='numeric'
+        id='one'
+        value='1'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='2'
+        group='numeric'
+        id='two'
+        value='2'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='3'
+        group='numeric'
+        id='three'
+        value='3'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='+'
+        group='operator'
+        id='add'
+        value='+'
+        handleClick={handleOperator}
+      />
+      <Key
+        text='0'
+        group='numeric'
+        id='zero'
+        value='0'
+        handleClick={handleNumericKey}
+      />
+      <Key
+        text='.'
+        group='numeric'
+        id='decimal'
+        value='.'
+        handleClick={handleDecimal}
+      />
+      <Key text='=' group='equal' id='equals' handleClick={handleEqual} />
     </div>
   );
 };
